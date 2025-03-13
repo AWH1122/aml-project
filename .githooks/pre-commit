@@ -1,0 +1,31 @@
+#!/bin/bash
+# This script clears Jupyter Notebook output, formats files with ruff, and checks for changes in requirements.txt
+
+source venv/bin/activate
+
+# Get the list of committed files
+FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Clear Jupyter Notebook output
+NOTEBOOK_FILES=$(echo "$FILES" | grep '\.ipynb$')
+if [ -n "$NOTEBOOK_FILES" ]; then
+    echo "Clearing output from Jupyter Notebooks..."
+    echo "$NOTEBOOK_FILES" | xargs -I {} sh -c 'jupyter nbconvert --clear-output --inplace "{}"'
+fi
+
+# Format all committed files with ruff
+FORMAT_FILES=$(echo "$FILES" | grep -E '\.(py|ipynb)$')
+if [ -n "$FORMAT_FILES" ]; then
+    echo "Formatting committed files..."
+    echo "$FORMAT_FILES" | xargs -I {} sh -c 'ruff format --no-cache "{}"'
+fi
+
+# Check if requirements.txt has changed
+if echo "$FILES" | grep -q 'requirements.txt'; then
+    echo "requirements.txt has changed. Please run 'pip install -r requirements.txt' to install new dependencies."
+fi
+
+# Add all formatted files to the commit
+if [ -n "$FILES" ]; then
+    echo "$FILES" | xargs git add
+fi

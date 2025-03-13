@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.eol": "\n",
+    "git.autofetch": true,
+    "git.autoStash": true,
+    "python.experiments.optOutFrom": [
+        "pythonTerminalEnvVarActivation"
+    ]
+}

@@ -1,0 +1,8 @@
+[core]
+    hooksPath = .githooks
+    safecrlf = warn
+[push]
+    autosetupremote = true
+    default = upstream
+[pull]
+    rebase = true

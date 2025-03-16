@@ -80,6 +80,7 @@ nvidia-cusparselt-cu12==0.6.2; sys_platform != "darwin"
 nvidia-nccl-cu12==2.21.5; sys_platform != "darwin"
 nvidia-nvjitlink-cu12==12.4.127; sys_platform != "darwin"
 nvidia-nvtx-cu12==12.4.127; sys_platform != "darwin"
+optuna==4.2.1
 overrides==7.7.0
 packaging==24.2
 pandas==2.2.3

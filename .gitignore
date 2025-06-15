@@ -14,3 +14,8 @@ data/*
 
 # Ignore Jupyter notebook checkpoints
 notebooks/.ipynb_checkpoints/
+
+# Ignore report
+report/
+
+code.zip

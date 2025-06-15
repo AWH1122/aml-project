@@ -1,6 +1,7 @@
 {
-    "hidden_size": 122,
-    "lr": 0.005413945545420161,
-    "epochs": 886,
-    "num_inputs": 21
+    "hidden_size": 104,
+    "lr": 0.006900616171464929,
+    "epochs": 383,
+    "num_inputs": 30,
+    "dropout": 2.7787885086652878e-05
 }
